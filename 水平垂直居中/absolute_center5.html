@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>absolute_center</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: aliceblue;
+        }
+
+        .Center-Container.is-Inline { 
+            text-align: center;
+            overflow: auto;
+        }
+
+        .Center-Container.is-Inline:after,
+        .is-Inline .Center-Block {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .Center-Container.is-Inline:after {
+            content: '';
+            height: 100%;
+            margin-left: -0.25em; /* To offset spacing. May vary by font */
+        }
+
+        .is-Inline .Center-Block {
+            max-width: 99%; /* Prevents issues with long content causes the content block to be pushed to the top */
+            /* max-width: calc(100% - 0.25em) /* Only for IE9+ */ 
+        }
+        
+        ul, li {
+            list-style: none;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container is-Inline">
+        <div class="Center-Block">
+            使用inline-block完成水平垂直居中
+        </div>
+    </div>
+    <!-- <h1>
+        Tips:
+        1.流体特性：
+            块状水平元素，如div元素（下同），在默认情况下（非浮动、绝对定位等），水平方向会自动填满外部的容器；
+            如果有margin-left/margin-right, padding-left/padding-right, border-left-width/border-right-width等，实际内容区域会响应变窄。
+        （https://www.zhangxinxu.com/wordpress/2015/02/css-deep-understand-flow-bfc-column-two-auto-layout/);
+
+        2.absolute流体特性：
+            默认是不具有流体特性的，而是在特定条件下才具有，而这个条件就是"对立方向同时发生定位的时候"，即left与right为水平方向定位，top与bottom为垂直方向定位，
+            而当对立方向同时具有定位数值的时候，流体特性就发生了；
+    </h1> -->
+</body>
+</html>
